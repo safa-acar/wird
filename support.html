@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wird – Support</title>
+<meta name="description" content="Wird Support. Get help with iCloud sync, purchases, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#40AA8A;--accent-s:rgba(64,170,138,.08);
+  --bg:#F2F2F7;--bg2:#FAFAFA;
+  --card:#FFFFFF;--card-in:#F5F5F7;
+  --t1:#1d1d1f;--t2:#6e6e73;--t3:#aeaeb2;--t4:#d1d1d6;
+  --nav:rgba(242,242,247,.82);--div:rgba(0,0,0,.06);
+  --f:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --fa:'Noto Naskh Arabic',system-ui,sans-serif;
+  --e:cubic-bezier(.25,.1,.25,1)
+}
+[data-theme="dark"]{
+  --accent:#45CDA4;--accent-s:rgba(69,205,164,.1);
+  --bg:#222222;--bg2:#1A1A1A;
+  --card:#2A2A2A;--card-in:#333333;
+  --t1:#F0F0F0;--t2:#A1A1A6;--t3:#636366;--t4:#3A3A3C;
+  --nav:rgba(34,34,34,.85);--div:rgba(255,255,255,.08)
+}
+
+/* i18n */
+.i{display:none!important}
+[data-lang="en"] .en,[data-lang="tr"] .tr,[data-lang="ar"] .ar{display:block!important}
+span.i{display:none!important}
+[data-lang="en"] span.en,[data-lang="tr"] span.tr,[data-lang="ar"] span.ar{display:inline!important}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--f);background:var(--bg);color:var(--t1);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .35s var(--e),color .35s var(--e)}
+[data-lang="ar"]{direction:rtl;text-align:right}
+[data-lang="ar"] body{font-family:var(--fa),var(--f)}
+[data-lang="ar"] .hero,[data-lang="ar"] .closing{text-align:center}
+
+/* ═══ NAV ═══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--nav);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid var(--div)}
+.nav-in{max-width:980px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--t1);opacity:.85;text-decoration:none}
+.nav-r{display:flex;align-items:center;gap:8px}
+.lang-w{position:relative}
+.lang-b{font-family:var(--f);font-size:13px;font-weight:500;color:var(--t2);background:var(--card);border:none;border-radius:10px;padding:6px 24px 6px 10px;cursor:pointer;transition:color .2s;appearance:none;-webkit-appearance:none}
+.lang-b::after{content:'';position:absolute;right:9px;top:50%;transform:translateY(-50%);border:4px solid transparent;border-top:5px solid var(--t3);pointer-events:none}
+[data-lang="ar"] .lang-b::after{right:auto;left:9px}
+[data-lang="ar"] .lang-b{padding:6px 10px 6px 24px}
+[data-lang="ar"] .lang-m{right:auto;left:0}
+.lang-b:hover{color:var(--t1)}
+.lang-m{display:none;position:absolute;top:calc(100% + 4px);right:0;background:var(--card);border-radius:16px;padding:4px;min-width:60px;box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:10}
+.lang-m.open{display:block}
+.lang-o{display:block;width:100%;text-align:center;font-family:var(--f);font-size:13px;font-weight:500;color:var(--t2);background:none;border:none;padding:8px 12px;border-radius:10px;cursor:pointer;transition:background .15s,color .15s}
+.lang-o:hover,.lang-o.act{background:var(--card-in);color:var(--t1)}
+[data-theme="dark"] .lang-m{box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.th-b{width:32px;height:32px;border-radius:50%;border:none;background:var(--card);color:var(--t2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:color .2s}
+.th-b:hover{color:var(--t1)}
+
+/* ═══ LAYOUT ═══ */
+.page{padding-top:56px}
+.sec{padding:100px 20px;transition:background .35s var(--e)}
+.sec-in{max-width:600px;margin:0 auto}
+.sec--h{background:var(--bg);padding-bottom:100px}
+.sec--e{background:var(--bg2)}
+.sec--j{background:var(--bg)}
+.sec--c{background:var(--bg2)}
+
+/* ═══ HERO ═══ */
+.hero{text-align:center;padding-top:56px}
+
+.hero-logo-w{width:96px;height:96px;margin:0 auto 32px;position:relative}
+.hero-logo{width:100%;height:100%;object-fit:cover;-webkit-user-select:none;user-select:none;pointer-events:none}
+.hero-logo-w::before{content:'';position:absolute;inset:0;z-index:2}
+/* Accent glow under logo */
+.hero-logo-w::after{content:'';position:absolute;inset:4px;background:var(--accent);opacity:.12;filter:blur(20px);border-radius:30%;z-index:-1}
+
+.hero h1{font-size:clamp(32px,7vw,48px);font-weight:700;letter-spacing:-.035em;line-height:1.08;margin-bottom:16px}
+.hero-sub{font-size:clamp(17px,2.8vw,21px);font-weight:400;color:var(--t2);line-height:1.65;max-width:400px;margin:0 auto 40px}
+.hero-sub b{color:var(--t1);font-weight:500}
+
+.badge{display:inline-flex;align-items:center;gap:8px;background:#000;color:#fff;text-decoration:none;padding:12px 28px;border-radius:980px;font-size:15px;font-weight:500;transition:opacity .2s,transform .2s}
+.badge:hover{opacity:.85;transform:scale(1.02)}
+.badge:active{transform:scale(.98)}
+[data-theme="dark"] .badge{background:#fff;color:#000}
+.badge svg{width:18px;height:18px;flex-shrink:0}
+
+/* ═══ EMPATHY — Paywall kart efekti ═══ */
+.emp{
+  padding:80px 0;
+}
+.emp p{
+  font-size:28px;font-weight:600;color:var(--t1);line-height:1.4;
+  text-align:center;letter-spacing:-.02em;
+  max-width:480px;margin:0 auto;
+}
+.emp .hl{color:var(--accent);font-weight:600}
+@media(max-width:768px){
+  .emp{padding:56px 0}
+  .emp p{font-size:22px}
+}
+
+/* ═══ JOURNEY — kartlar ═══ */
+.jour{display:flex;flex-direction:column;gap:24px}
+.jc{
+  background:var(--card);border-radius:28px;padding:48px 40px;
+}
+
+/* Kart üst: kutulu ikon + etiket yan yana */
+.jc-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+[data-lang="ar"] .jc-top{flex-direction:row}
+.jc-i{width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--accent) 8%,transparent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.jc-i svg{width:22px;height:22px;color:var(--accent);stroke-width:1.5}
+[data-theme="dark"] .jc-i{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.jc-tag{font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.01em}
+
+/* Felsefe + açıklama */
+.jc-t{font-size:21px;font-weight:600;color:var(--t1);line-height:1.3;letter-spacing:-.02em;margin-bottom:14px}
+.jc-f{font-size:17px;font-weight:400;color:var(--t2);line-height:1.47;letter-spacing:-.022em}
+.jc-f b{color:var(--t1);font-weight:400}
+
+/* ═══ CLOSING ═══ */
+.closing{text-align:center}
+.cl-t{font-size:32px;font-weight:700;color:var(--t1);margin-bottom:12px;letter-spacing:-.02em}
+.cl-t .ar{font-family:var(--fa);color:var(--accent);font-weight:600}
+.cl-m{font-size:17px;color:var(--t2);line-height:1.6;max-width:400px;margin:0 auto 40px;letter-spacing:-.01em}
+.had{
+  background:var(--card);border-radius:28px;padding:36px 32px;margin-bottom:48px;text-align:left;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  max-width:440px;margin-left:auto;margin-right:auto;
+}
+[data-lang="ar"] .had{text-align:right}
+[data-theme="dark"] .had{box-shadow:0 2px 12px rgba(0,0,0,.35)}
+.had-q{font-size:17px;font-style:italic;color:var(--t1);line-height:1.6;margin-bottom:10px}
+[data-lang="ar"] .had-q{font-family:var(--fa);font-style:normal;font-size:19px;direction:rtl}
+.had-s{font-size:13px;color:var(--t3);letter-spacing:.01em}
+[data-lang="ar"] .had-s{font-family:var(--fa)}
+
+/* ═══ FOOTER ═══ */
+.footer{padding:32px 20px;background:var(--bg);border-top:.5px solid var(--div);text-align:center}
+.footer-l{display:flex;justify-content:center;gap:24px;margin-bottom:12px}
+.footer-a{font-size:13px;color:var(--t3);text-decoration:none;transition:color .2s}
+.footer-a:hover{color:var(--t2)}
+.footer-c{font-size:12px;color:var(--t4)}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(0,0,.25,1),transform .6s cubic-bezier(0,0,.25,1)}
+.rv.v{opacity:1;transform:translateY(0)}
+.jc.rv:nth-child(1){transition-delay:0s}
+.jc.rv:nth-child(2){transition-delay:.08s}
+.jc.rv:nth-child(3){transition-delay:.16s}
+.jc.rv:nth-child(4){transition-delay:.24s}
+.jc.rv:nth-child(5){transition-delay:.32s}
+.jc.rv:nth-child(6){transition-delay:.4s}
+.jc.rv:nth-child(7){transition-delay:.48s}
+
+@media(max-width:640px){
+  .sec{padding:64px 16px}
+  .sec--h{padding-bottom:80px}
+  .hero{padding-top:40px}
+  .hero-logo-w{width:80px;height:80px}
+  .emp{padding:36px 28px}
+  .jc{padding:36px 28px}
+}
+@media(max-width:380px){.hero h1{font-size:28px}.emp p{font-size:15px}}
+@media print{.nav{display:none}.page{padding-top:0}.rv{opacity:1;transform:none}}
+
+
+/* ═══ SUPPORT PAGE ═══ */
+.pg{max-width:640px;margin:0 auto;padding:96px 24px 80px}
+.pg-t{font-size:32px;font-weight:700;letter-spacing:-.03em;margin-bottom:12px;color:var(--t1)}
+.pg-sub{font-size:17px;color:var(--t2);line-height:1.6;margin-bottom:64px}
+.pg h2{font-size:20px;font-weight:600;color:var(--t1);margin:48px 0 20px;letter-spacing:-.01em}
+.pg h2:first-of-type{margin-top:0}
+.pg p{font-size:16px;color:var(--t2);line-height:1.7;margin-bottom:16px}
+.pg strong{color:var(--t1);font-weight:500}
+.pg a{color:var(--accent);text-decoration:none}
+.pg a:hover{text-decoration:underline}
+
+/* FAQ */
+.faq{margin-bottom:48px}
+.faq-item{border-bottom:.5px solid var(--div);padding:28px 0}
+.faq-item:first-child{border-top:.5px solid var(--div);margin-top:8px}
+.faq-q{font-size:16px;font-weight:600;color:var(--t1);margin-bottom:8px;cursor:default}
+.faq-a{font-size:15px;color:var(--t2);line-height:1.7}
+.faq-a code{font-size:13px;background:var(--bg2);padding:2px 6px;border-radius:4px;font-family:monospace}
+
+/* Contact button */
+.contact-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#000!important;color:#fff!important;
+  font-size:16px;font-weight:500;
+  padding:14px 32px;border-radius:980px;
+  text-decoration:none!important;transition:opacity .2s;
+}
+.contact-btn:hover{opacity:.85;text-decoration:none!important}
+[data-theme="dark"] .contact-btn{background:#f5f5f7!important;color:#1d1d1f!important}
+.contact-w{text-align:center;margin-top:56px}
+.contact-note{font-size:14px;color:var(--t3);margin-top:12px}
+
+@media(max-width:768px){
+  .pg{padding:72px 20px 60px}
+  .pg-t{font-size:26px}
+}
+
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-in">
+    <a href="/wird/" class="nav-brand">Wird</a>
+    <div class="nav-r">
+      <div class="lang-w">
+        <button class="lang-b" id="lb">EN</button>
+        <div class="lang-m" id="lm">
+          <button class="lang-o act" data-l="en">EN</button>
+          <button class="lang-o" data-l="tr">TR</button>
+          <button class="lang-o" data-l="ar">AR</button>
+        </div>
+      </div>
+      <button class="th-b" id="tt"><span id="ti">☾</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="pg">
+
+<!-- ═══ ENGLISH ═══ -->
+<div class="i en">
+<h1 class="pg-t">Support</h1>
+<p class="pg-sub">Find answers to common questions below, or reach out to us directly.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+
+<div class="faq-item">
+<div class="faq-q">My data isn't syncing across devices</div>
+<div class="faq-a">Make sure iCloud is enabled on all your devices. Go to <code>Settings → Apple ID → iCloud</code> and check that Wird is toggled on. Both devices must be signed in to the same Apple ID. After enabling, give it a few minutes to sync.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">I can't restore my purchase</div>
+<div class="faq-a">Go to <code>Settings → Account</code> in the app and tap <strong>Restore Purchase</strong>. Make sure you're signed in with the same Apple ID you used for the original purchase. If it still doesn't work, try restarting the app.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">How do I delete my data?</div>
+<div class="faq-a">Delete the app to remove all local data. To also remove iCloud data, go to <code>Settings → Apple ID → iCloud → Manage Storage</code> on your device and delete Wird's data.</div>
+</div>
+
+
+
+<div class="faq-item">
+<div class="faq-q">Is there a subscription?</div>
+<div class="faq-a"><strong>No.</strong> Wird offers a one-time lifetime purchase. Pay once, use forever. No recurring charges.</div>
+</div>
+
+</div>
+
+<div class="contact-w">
+<a href="https://forms.gle/Fy3AmhPFjx5M9GrY7" target="_blank" class="contact-btn">Contact Us</a>
+
+</div>
+</div>
+
+<!-- ═══ TURKISH ═══ -->
+<div class="i tr">
+<h1 class="pg-t">Destek</h1>
+<p class="pg-sub">Sık sorulan soruların cevaplarını aşağıda bulabilir veya bize doğrudan yazabilirsiniz.</p>
+
+<h2>Sık Sorulan Sorular</h2>
+<div class="faq">
+
+<div class="faq-item">
+<div class="faq-q">Verilerim cihazlar arasında senkronize olmuyor</div>
+<div class="faq-a">Tüm cihazlarınızda iCloud'un etkin olduğundan emin olun. <code>Ayarlar → Apple Kimliği → iCloud</code> bölümüne gidin ve Wird'in açık olduğunu kontrol edin. Her iki cihaz da aynı Apple Kimliği ile giriş yapmış olmalıdır. Etkinleştirdikten sonra senkronizasyon için birkaç dakika bekleyin.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Satın almamı geri yükleyemiyorum</div>
+<div class="faq-a">Uygulamada <code>Ayarlar → Hesap</code> bölümüne gidin ve <strong>Satın Almayı Geri Yükle</strong> düğmesine dokunun. Orijinal satın alma işleminde kullandığınız Apple Kimliği ile giriş yaptığınızdan emin olun. Hâlâ çalışmıyorsa uygulamayı yeniden başlatmayı deneyin.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Verilerimi nasıl silebilirim?</div>
+<div class="faq-a">Tüm yerel verileri silmek için uygulamayı kaldırın. iCloud verilerini de silmek için cihazınızda <code>Ayarlar → Apple Kimliği → iCloud → Depolamayı Yönet</code> bölümüne gidin ve Wird verilerini silin.</div>
+</div>
+
+
+
+<div class="faq-item">
+<div class="faq-q">Abonelik var mı?</div>
+<div class="faq-a"><strong>Hayır.</strong> Wird tek seferlik ömür boyu satın alım sunar. Bir kez ödeyin, sonsuza kadar kullanın. Tekrarlayan ücret yoktur.</div>
+</div>
+
+</div>
+
+<div class="contact-w">
+<a href="https://forms.gle/Fy3AmhPFjx5M9GrY7" target="_blank" class="contact-btn">Bize Yazın</a>
+
+</div>
+</div>
+
+<!-- ═══ ARABIC ═══ -->
+<div class="i ar" style="font-family:var(--fa)">
+<h1 class="pg-t">الدعم</h1>
+<p class="pg-sub">اعثر على إجابات للأسئلة الشائعة أدناه، أو تواصل معنا مباشرة.</p>
+
+<h2>الأسئلة الشائعة</h2>
+<div class="faq">
+
+<div class="faq-item">
+<div class="faq-q">بياناتي لا تتزامن بين الأجهزة</div>
+<div class="faq-a">تأكّد من تفعيل iCloud على جميع أجهزتك. انتقل إلى <code>الإعدادات ← معرّف Apple ← iCloud</code> وتحقّق من تفعيل وِرْد. يجب أن يكون كلا الجهازين مسجّلين بنفس معرّف Apple. بعد التفعيل، انتظر بضع دقائق للمزامنة.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">لا أستطيع استعادة عملية الشراء</div>
+<div class="faq-a">انتقل إلى <code>الإعدادات ← الحساب</code> في التطبيق واضغط على <strong>استعادة الشراء</strong>. تأكّد من تسجيل الدخول بنفس معرّف Apple الذي استخدمته في الشراء الأصلي. إذا لم يعمل، جرّب إعادة تشغيل التطبيق.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">كيف أحذف بياناتي؟</div>
+<div class="faq-a">احذف التطبيق لإزالة جميع البيانات المحلية. لحذف بيانات iCloud أيضًا، انتقل إلى <code>الإعدادات ← معرّف Apple ← iCloud ← إدارة التخزين</code> على جهازك واحذف بيانات وِرْد.</div>
+</div>
+
+
+
+<div class="faq-item">
+<div class="faq-q">هل يوجد اشتراك؟</div>
+<div class="faq-a"><strong>لا.</strong> يقدّم وِرْد شراءً واحدًا مدى الحياة. ادفع مرة واحدة، واستخدمه للأبد. لا رسوم متكررة.</div>
+</div>
+
+</div>
+
+<div class="contact-w">
+<a href="https://forms.gle/Fy3AmhPFjx5M9GrY7" target="_blank" class="contact-btn">تواصل معنا</a>
+
+</div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <nav class="footer-l">
+    <a href="privacy.html" class="footer-a"><span class="i en">Privacy Policy</span><span class="i tr">Gizlilik Politikası</span><span class="i ar" style="font-family:var(--fa)">سياسة الخصوصية</span></a>
+    <a href="support.html" class="footer-a"><span class="i en">Support</span><span class="i tr">Destek</span><span class="i ar" style="font-family:var(--fa)">الدعم</span></a>
+  </nav>
+  <p class="footer-c">&copy; 2026 Wird</p>
+</footer>
+<script>
+(function(){
+  var L=['en','tr','ar'],s=localStorage.getItem('wird-l'),
+  b=(navigator.language||'').slice(0,2),l=s||(L.indexOf(b)!==-1?b:'en');
+  function sL(v){var h=document.documentElement;h.setAttribute('data-lang',v);h.lang=v;localStorage.setItem('wird-l',v);
+  if(v==='ar')h.setAttribute('dir','rtl');else h.removeAttribute('dir');
+  document.getElementById('lb').textContent=v.toUpperCase();
+  document.querySelectorAll('.lang-o').forEach(function(o){o.classList.toggle('act',o.getAttribute('data-l')===v)});
+  document.getElementById('lm').classList.remove('open')}
+  sL(l);
+  document.getElementById('lb').addEventListener('click',function(e){e.stopPropagation();document.getElementById('lm').classList.toggle('open')});
+  document.querySelectorAll('.lang-o').forEach(function(o){o.addEventListener('click',function(){sL(this.getAttribute('data-l'))})});
+  document.addEventListener('click',function(){document.getElementById('lm').classList.remove('open')});
+
+  var st=localStorage.getItem('wird-t'),pd=matchMedia('(prefers-color-scheme:dark)').matches,t=st||(pd?'dark':'light');
+  function sT(v){document.documentElement.setAttribute('data-theme',v);localStorage.setItem('wird-t',v);document.getElementById('ti').textContent=v==='dark'?'☀':'☾'}
+  sT(t);document.getElementById('tt').onclick=function(){sT(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')};
+
+  var r=document.querySelectorAll('.rv');
+  if('IntersectionObserver'in window){var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');o.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -30px 0px'});r.forEach(function(e){o.observe(e)})}
+  else r.forEach(function(e){e.classList.add('v')})
+})();
+</script>
+</body>
+</html>
